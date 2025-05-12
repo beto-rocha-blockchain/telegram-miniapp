@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import WebApp from '@twa-dev/sdk';
 
-function App() {
+const App: React.FC = () => {
+  // Exemplo de uso do MainButton do Telegram
+  React.useEffect(() => {
+    WebApp.MainButton.setText('Clique aqui');
+    WebApp.MainButton.show();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Bem-vindo ao Mini App do Telegram</h1>
+      <p>Usuário: {WebApp.initDataUnsafe?.user?.first_name}</p>
+      {/* Aqui você pode adicionar a lógica para conectar a carteira Ethereum e integrar o zkVerify */}
     </div>
   );
-}
+};
 
 export default App;
